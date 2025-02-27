@@ -1,6 +1,6 @@
-# tmux-currency 📈💰 - Tmux Plugin to Monitor Currency Prices
+# tmux-currency 📈💰
 
-A Tmux plugin that displays real-time currency exchange rates in the
+A Tmux plugin that displays (almost)real-time currency exchange rates in the
 status bar, powered by [AwesomeAPI](https://docs.awesomeapi.com.br/api-de-moedas).
 
 ---
@@ -70,6 +70,7 @@ set -g @tmux-currency-update-interval 30
 2. It processes the response and formats the data for display.
 3. The formatted currency rates are displayed in the Tmux status bar.
 4. Updates occur at the interval set in @tmux-currency-update-interval.
+5. It caches prices according to the interval set
 
 ## 📝 License
 
@@ -78,4 +79,4 @@ See the [LICENSE](./LICENSE) file for details.
 
 ## 📄 Credits
 
-- Thanks to AwesomeAPI for providing the APIs ❤️
+- Thanks to [AwesomeAPI](https://awesomeapi.com.br/) for providing the APIs ❤️
