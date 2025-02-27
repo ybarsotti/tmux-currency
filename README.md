@@ -3,6 +3,8 @@
 A Tmux plugin that displays (almost)real-time currency exchange rates in the
 status bar, powered by [AwesomeAPI](https://docs.awesomeapi.com.br/api-de-moedas).
 
+![license](https://img.shields.io/badge/LICENSE-MIT-1D918B.svg)
+
 ---
 
 ## 📥 Installation
@@ -24,6 +26,7 @@ tmux source ~/.tmux.conf
 
 `<tmux-prefix> + I`
 
+
 ### 🔹 Manual Installation
 
 Clone the repository into your Tmux plugins directory (usually ~/.tmux/plugins/):
@@ -36,6 +39,14 @@ Then, add this line to your .tmux.conf:
 
 ```shell
 run-shell ~/.tmux/plugins/tmux-currency/tmux-currency.tmux
+```
+
+### 🔹 Update config file
+
+Update the `.tmux.conf` file adding the key into the status
+
+```shell
+set -g status-right "#{currency}"
 ```
 
 Reload Tmux:
