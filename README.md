@@ -70,6 +70,11 @@ set -g @tmux-currency-currencies "USD-BRL,BTC-BRL"
 set -g @tmux-currency-update-interval 30
 ```
 
+## 💱 Available currencies
+
+In the [AwesomeAPI documentation](https://economia.awesomeapi.com.br/xml/available) you can find all 
+available currencies.
+
 ## 🖥️ Screenshots
 
 ![Example](./assets/example.png)
