@@ -26,7 +26,6 @@ tmux source ~/.tmux.conf
 
 `<tmux-prefix> + I`
 
-
 ### 🔹 Manual Installation
 
 Clone the repository into your Tmux plugins directory (usually ~/.tmux/plugins/):

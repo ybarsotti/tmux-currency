@@ -6,6 +6,7 @@ source "$CURRENT_DIR/helpers.sh"
 
 CACHE_FILE="$CURRENT_DIR/.currency_cache"
 CACHE_TIME_FILE="$CURRENT_DIR/.currency_cache_time"
+ERROR_FILE="$CURRENT_DIR/.error"
 
 UPDATE_INTERVAL=$(get_tmux_option "@tmux-currency-update-interval")
 UPDATE_INTERVAL=${UPDATE_INTERVAL:-60}
@@ -31,6 +32,13 @@ fetch_prices() {
     fi
   fi
   response=$(curl -s "https://economia.awesomeapi.com.br/json/last/$CURRENCIES")
+
+  if echo "$response" | jq -e 'has("status")' >/dev/null 2>&1; then
+    echo "Error"
+    echo "$response" >"$ERROR_FILE"
+    return 1
+  fi
+
   echo "$response" >"$CACHE_FILE"
   echo $(date +%s) >"$CACHE_TIME_FILE"
   echo "$response"
@@ -39,6 +47,12 @@ fetch_prices() {
 get_currency_prices() {
   local json_data=$(fetch_prices)
   local output=""
+
+  if echo "$json_data" | grep -q "Error"; then
+    echo "Currency: Error!"
+    exit 1
+  fi
+
   for currency in ${CURRENCIES//,/ }; do
     key=$(echo "$currency" | tr -d '-' | tr 'a-z' 'A-Z')
     code=$(echo "$json_data" | jq -r ".${key}.code")
