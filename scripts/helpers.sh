@@ -5,8 +5,34 @@ PATH="/usr/local/bin:$PATH:/usr/sbin"
 get_icon() {
   case "$1" in
   USD) echo "💵" ;;
-  BTC) echo "₿" ;;
   EUR) echo "💶" ;;
+  GBP) echo "💷" ;;
+  JPY) echo "💴" ;;
+  CHF) echo "🏦" ;;
+  AUD) echo "🦘" ;;
+  CAD) echo "🍁" ;;
+  CNY) echo "🀄" ;;
+  INR) echo "₹" ;;
+  BRL) echo "🟢" ;;
+  ARS) echo "🪙" ;;
+  MXN) echo "🌵" ;;
+  RUB) echo "₽" ;;
+  ZAR) echo "🦁" ;;
+  TRY) echo "₺" ;;
+  SEK) echo "🧊" ;;
+  NOK) echo "🎿" ;;
+  DKK) echo "👑" ;;
+  SGD) echo "🦁" ;;
+  HKD) echo "🏙️" ;;
+  BTC) echo "₿" ;;
+  ETH) echo "🟣" ;;
+  XRP) echo "⚡" ;;
+  LTC) echo "Ł" ;;
+  DOGE) echo "🐶" ;;
+  SOL) echo "🌞" ;;
+  BNB) echo "🟡" ;;
+  XAU) echo "🥇" ;;
+  XAG) echo "🥈" ;;
   *) echo "💰" ;;
   esac
 }
