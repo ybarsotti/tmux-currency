@@ -63,7 +63,7 @@ get_currency_prices() {
 
     formatted_bid=$(format_bid "$bid")
     icon="$(get_icon $code)"
-    output+="$icon $code: $formatted_bid | "
+    output+="$code: $icon $formatted_bid | "
   done
   echo "${output% | }"
 }
