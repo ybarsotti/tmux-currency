@@ -33,7 +33,7 @@ fetch_prices() {
   fi
   response=$(curl -s "https://economia.awesomeapi.com.br/json/last/$CURRENCIES")
 
-  if echo "$response" | jq -e 'has("status")' >/dev/null 2>&1; then
+  if [ -z "$response" ] || echo "$response" | jq -e 'has("status")' >/dev/null 2>&1; then
     echo "Error"
     echo "$response" >"$ERROR_FILE"
     return 1
