@@ -57,13 +57,22 @@ get_currency_prices() {
     key=$(echo "$currency" | tr -d '-' | tr 'a-z' 'A-Z')
     code=$(echo "$json_data" | jq -r ".${key}.code")
     bid=$(echo "$json_data" | jq -r ".${key}.bid")
+    varBid=$(echo "$json_data" | jq -r ".${key}.varBid")
+
     if [[ "$code" == "null" || "$bid" == "null" ]]; then
       continue
     fi
-
+    
     formatted_bid=$(format_bid "$bid")
     icon="$(get_icon $code)"
-    output+="$code: $icon $formatted_bid | "
+
+    if (( $(echo "$varBid > 0" | bc -l) )); then
+        variation_icon=" " 
+    else
+        variation_icon=" "
+    fi
+
+    output+="$code: $icon $formatted_bid $variation_icon | "
   done
   echo "${output% | }"
 }
